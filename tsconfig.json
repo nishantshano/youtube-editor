@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
+    "noEmit": true,
     "importHelpers": true,
     "alwaysStrict": true,
     "esModuleInterop": true,
@@ -16,7 +17,6 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
     "strictNullChecks": false

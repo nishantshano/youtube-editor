@@ -1,3 +1,6 @@
-import { exampleFunction } from './apps/example/test.ts';
+import app from './app.ts';
+import { PORT } from './config/app.config.ts'
 
-exampleFunction();
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
