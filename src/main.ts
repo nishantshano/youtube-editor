@@ -1,1 +1,3 @@
-console.log('Hello, World!');
+import { exampleFunction } from './apps/example/test.ts';
+
+exampleFunction();

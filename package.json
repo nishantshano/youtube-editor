@@ -2,23 +2,22 @@
   "name": "youtube-editor",
   "version": "0.0.0",
   "type": "module",
+  "main": "build/src/main.js",
   "engines": {
     "node": ">= 22.14 < 23"
   },
   "devDependencies": {
-    "@types/node": "~20",
-    "globals": "~15.14",
+    "@types/node": "~24",
+    "globals": "~16.3",
     "nodemon": "^3.1.10",
-    "rimraf": "~6.0",
-    "ts-api-utils": "~2.0",
-    "typescript": "~5.7"
+    "ts-node": "^10.9.2",
+    "typescript": "~5.8"
   },
   "scripts": {
     "dev": "nodemon",
     "start": "node build/src/main.js",
-    "clean": "rimraf coverage build tmp",
-    "build": "tsc -p tsconfig.json",
-    "build:watch": "tsc -w -p tsconfig.json"
+    "build": "tsc",
+    "build:watch": "tsc -w"
   },
   "dependencies": {
     "tslib": "~2.8"
