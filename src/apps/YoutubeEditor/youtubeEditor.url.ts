@@ -1,11 +1,11 @@
 import { Router } from 'express';
 import {
-  createAuth
+  createAuth, login
 } from './youtubeEditor.controller.ts';
 
 const router = Router();
 
-// GET /example - Get all examples
 router.get('/', createAuth);
+router.get('/oauth2callback', login);
 
 export default router;

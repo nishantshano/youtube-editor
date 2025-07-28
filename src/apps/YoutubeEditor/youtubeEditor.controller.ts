@@ -1,18 +1,11 @@
 
 import { Request, Response } from 'express';
-import { google } from 'googleapis';
+
 import { oauth2Credentials } from '../../config/credentials.config.ts';
+import { getOAuth2Client, signJWTToken } from '../../utils/auth.utils.ts';
 
 export const createAuth = (req: Request, res: Response) => {
-
-    const OAuth2 = google.auth.OAuth2;
-
-    const oauth2Client = new OAuth2(
-        oauth2Credentials.client_id,
-        oauth2Credentials.client_secret,
-        oauth2Credentials.redirect_uris[0]
-    )
-
+    const oauth2Client = getOAuth2Client();
     const loginLink = oauth2Client.generateAuthUrl({
         access_type: 'offline',
         scope: oauth2Credentials.scopes
@@ -20,3 +13,27 @@ export const createAuth = (req: Request, res: Response) => {
 
     res.render('index', { loginLink })
 };
+
+export const login = (req: Request, res: Response) => {
+    const oauth2Client = getOAuth2Client();
+
+    if (req.query.error) {
+        return res.redirect('/');
+    } else {
+        const code = Array.isArray(req.query.code) ? req.query.code[0] : req.query.code;
+
+        if (typeof code !== 'string') {
+            return res.redirect('/');
+        }
+
+        oauth2Client.getToken(code, (err, token) => {
+            if (err) {
+                return res.redirect('/');
+            }
+
+
+            res.cookie('jwt', signJWTToken(token))
+            return res.redirect('/dashboard');
+        });
+    }
+}
