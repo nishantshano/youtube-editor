@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
     "noEmit": true,
     "importHelpers": true,
     "alwaysStrict": true,

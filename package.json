@@ -7,6 +7,7 @@
     "node": ">= 22.14 < 23"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.9",
     "@types/express": "^5.0.3",
     "@types/node": "~24",
     "globals": "~16.3",
@@ -21,7 +22,12 @@
     "build:watch": "tsc -w"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "googleapis": "^154.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "path": "^0.12.7",
     "tslib": "~2.8"
   }
 }
