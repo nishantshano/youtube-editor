@@ -2,7 +2,7 @@
 import { Request, Response } from 'express';
 
 import { oauth2Credentials } from '../../config/credentials.config.ts';
-import { getOAuth2Client, signJWTToken } from '../../utils/auth.utils.ts';
+import { getOAuth2Client } from '../../utils/auth.utils.ts';
 
 export const createAuth = (req: Request, res: Response) => {
     const oauth2Client = getOAuth2Client();
@@ -31,9 +31,8 @@ export const login = (req: Request, res: Response) => {
                 return res.redirect('/');
             }
 
-
-            res.cookie('jwt', signJWTToken(token))
-            return res.redirect('/dashboard');
+            res.cookie('jwt', token)
+            return res.redirect('/yt/subscription-list');
         });
     }
 }

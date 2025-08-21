@@ -7,5 +7,5 @@ export interface ICREDENTIALS {
     client_secret: string,
     redirect_uris: string[],
     javascript_origins: string[]
-    scopes: string
+    scopes: string[]
 }

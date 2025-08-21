@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import {
   createAuth, login
-} from './youtubeEditor.controller.ts';
+} from './auth.controller.ts';
 
 const router = Router();
 
