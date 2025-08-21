@@ -1,11 +1,7 @@
 import { google } from 'googleapis';
-import { OAuth2Client } from 'google-auth-library';
-// import * as jwt from 'jsonwebtoken'
-
-// import { JWTSecret, oauth2Credentials } from "../config/credentials.config.ts"
 import { GOOGLE_CERT, oauth2Credentials } from "../config/credentials.config.ts";
 
-let oauth2Client!: OAuth2Client
+let oauth2Client!: any
 
 export const getOAuth2Client = () => {
 
@@ -38,8 +34,3 @@ export const authenticateUser = async (token) => {
 
     return null;
 }
-
-
-// export const signJWTToken = (token) => {
-//     return jwt['default'].sign(token, JWTSecret)
-// }
